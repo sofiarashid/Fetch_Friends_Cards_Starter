@@ -19,7 +19,7 @@ loadButton.addEventListener("click", loadFriends);
 function loadFriends() {
   statusMessage.classList.remove("error");
   statusMessage.textContent = "Loading friends...";
-//create
+// create
   const xhr = new XMLHttpRequest();
 // open
   xhr.open("GET", "friends.json");

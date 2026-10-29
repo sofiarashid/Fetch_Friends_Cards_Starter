@@ -2,7 +2,7 @@
     {
         "name": "Pam",
         "relationship": "friend",
-        "detail": "Likes singing",
+        "detail": "Likes to sing",
         "hobbies": ["Theatre", "Drawing","Shopping"]
     },
     {
