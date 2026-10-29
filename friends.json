@@ -1,0 +1,7 @@
+[
+  { "name": "Jordan", "relationship": "Teammate", "detail": "Enjoys building games", "hobbies": ["Coding", "Soccer", "Music"] },
+  { "name": "Riley", "relationship": "Classmate", "detail": "Likes solving puzzles", "hobbies": ["Reading", "Art", "Chess"] },
+  { "name": "Sam", "relationship": "Lab partner", "detail": "Always has a snack", "hobbies": ["Baking", "Hiking", "Photography"] },
+  { "name": "Avery", "relationship": "Neighbor", "detail": "Plays three instruments", "hobbies": ["Guitar", "Drums", "Piano"] },
+  { "name": "Kai", "relationship": "Bandmate", "detail": "Runs cross country", "hobbies": ["Running", "Podcasts", "Chess"] }
+]
