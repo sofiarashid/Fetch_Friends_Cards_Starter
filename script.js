@@ -16,26 +16,23 @@ loadButton.addEventListener("click", loadFriends);
 // loadFriends: CURRENT VERSION, uses XMLHttpRequest.
 // Checkpoints 2 and 3 replace this whole function.
 // -------------------------------------------------------------
-function loadFriends() {
+async function loadFriends() {
   statusMessage.classList.remove("error");
   statusMessage.textContent = "Loading friends...";
-  fetch("friends.json")
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(function (friends) {
-      renderFriends(friends);
-    })
-    .catch(function (error) {
-      if (error instanceof SyntaxError) {
-        showDataError(error);
-      } else {
-        showLoadError();
-      }
-    });
+  try {
+    const response = await fetch("friends.json");
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    const friends = await response.json();
+    renderFriends(friends);
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      showDataError(error);
+    } else {
+      showLoadError();
+    }
+  }
 }
 
 // -------------------------------------------------------------
