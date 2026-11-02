@@ -19,27 +19,23 @@ loadButton.addEventListener("click", loadFriends);
 function loadFriends() {
   statusMessage.classList.remove("error");
   statusMessage.textContent = "Loading friends...";
-// create
-  const xhr = new XMLHttpRequest();
-// open
-  xhr.open("GET", "friends.json");
-// onload
-  xhr.onload = function () {
-    if (xhr.status === 200) {
-      try {
-        const friends = JSON.parse(xhr.responseText);
-        renderFriends(friends);
-      // oneerror
-      } catch (error) {
-        showDataError(error);
+  fetch("friends.json")
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error(response.status);
       }
-    } else {
-      showLoadError();
-    }
-  };
-// send
-  xhr.onerror = showLoadError;
-  xhr.send();
+      return response.json();
+    })
+    .then(function (friends) {
+      renderFriends(friends);
+    })
+    .catch(function (error) {
+      if (error instanceof SyntaxError) {
+        showDataError(error);
+      } else {
+        showLoadError();
+      }
+    });
 }
 
 // -------------------------------------------------------------
